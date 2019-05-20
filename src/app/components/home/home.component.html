@@ -1,0 +1,29 @@
+<div class="header text-center pt-4 text-primary">
+  <h1>Task Manager</h1>
+</div>
+<div class="container">
+<div class="row justify-content-center">
+  <div class="col-lg-12">
+
+    <div class="mb-5">
+      <a routerLink="/Add-task" class="btn btn-primary">Add New Task</a>
+    </div>
+    <!-- NO TASKS -->
+    <div *ngIf="taskser.tasks.length==0">
+      <div class="alert alert-primary" role="alert">
+        THERE IS NO TASKS
+      </div>
+    </div>
+    <!-- TASKS -->
+    <div *ngIf="taskser.tasks.length!=0">
+      <ul class="list-group">
+        <li  *ngFor="let task of taskser.tasks; index as i" class="list-group-item mb-5" >
+          <a [routerLink]="['/task',i]">{{task.title}}</a>
+          <button type="button" class="btn btn-danger float-right" (click)="DeleteTask(i)">Delete</button>
+        </li>
+      </ul>
+    
+    </div>
+  </div>
+</div>
+</div>

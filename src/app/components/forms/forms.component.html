@@ -1,0 +1,45 @@
+<div class="header text-center pt-4 text-primary">
+  <h1>Task Manager</h1>
+</div>
+<div class="container justify-content-center">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" formControlName="email" class="form-control">
+          <span *ngIf="!loginForm.get('email').valid &&loginForm.get('email').touched" class="grey">
+            <span *ngIf="loginForm.get('email').errors.required">
+              this is field is required
+            </span>
+            <span *ngIf="loginForm.get('email').errors['validationError']&& !loginForm.get('email').errors.required">
+              email is in correct
+            </span>
+          </span>
+        </div>
+        <div class="form-group mb-4">
+          <label for="password">Password</label>
+          <input type="text" formControlName="password" class="form-control">
+          <span *ngIf="!loginForm.get('password').valid&&loginForm.get('password').touched" class="grey">
+            <span *ngIf="loginForm.get('password').errors.minlength">
+              password shoud be more than 6 chars
+            </span>
+            <span *ngIf="loginForm.get('password').errors.maxlength">
+              password shoud be less than 12chars
+            </span>
+
+            <span *ngIf="loginForm.get('password').errors.required">
+              this is field is required
+              <span
+                *ngIf="loginForm.get('password').errors['passworderror']&&!loginForm.get('password').errors.required">
+                password is in correct
+              </span>
+            </span>
+
+          </span>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

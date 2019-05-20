@@ -1,0 +1,15 @@
+<div *ngIf="!taskId">
+  <p class="alert alert-danger">
+  there is no match
+  </p>
+</div>
+<!-- 2 way binding -->
+  <div class="container">
+<div *ngIf="taskId">
+        <input  type="text" class="form-control mb-5" placeholder="Add Task" [(ngModel)]="task.title">
+        <textarea  class="form-control mb-5" placeholder="Description" [(ngModel)]="task.description"></textarea>
+        <button type="button" class="btn btn-primary mr-3" (click)="saveTask()">Save</button>
+        <button type="button" class="btn btn-danger mr-3" (click)="DeleteTask()">Delete Task</button>
+        <a routerLink="/home" class="btn btn-danger mr-3" >Cancel</a>
+      </div>
+</div>

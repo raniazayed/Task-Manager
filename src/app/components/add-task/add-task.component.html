@@ -1,0 +1,7 @@
+<div class="container">
+  <input #taskTitle type="text" class="form-control mb-5" placeholder="Add Task">
+  <textarea #taskDisc class="form-control mb-5" placeholder="Description"></textarea>
+  <button type="button" class="btn btn-primary mr-3" (click)="saveTask(taskTitle,taskDisc)">Save</button>
+  <!-- <button type="button" class="btn btn-danger mr-3" (click)="DeleteTask()">Delete Task</button> -->
+  <a routerLink="/home" class="btn btn-danger mr-3" >Cancel</a>
+</div>
